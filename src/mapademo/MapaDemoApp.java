@@ -21,7 +21,7 @@ public class MapaDemoApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/logo.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/images/logo.png")));
         Scene scene = new Scene(root);
         stage.setTitle("Demo mapas - IPC");
         stage.setScene(scene);

@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MapController">
-    <stylesheets>
-        <URL value="@/resources/css/estilos.css"/>
-    </stylesheets>
-</AnchorPane>
+<SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MapController">
+   <items>
+      <!-- Panel Superior: Contenedor del Mapa con controles de Zoom -->
+      <BorderPane>
+         <top>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-background-color: #f4f4f4;">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleRegisterMap" text="Seleccionar mapa...">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label style="-fx-font-weight: bold;" text="Zoom:" />
+                  <Button mnemonicParsing="false" onAction="#handleZoomOut" prefWidth="30.0" text="-" />
+                  <Button mnemonicParsing="false" onAction="#handleZoomIn" prefWidth="30.0" text="+" />
+               </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </top>
+         <center>
+            <ScrollPane fx:id="mapScrollPane" fitToHeight="false" fitToWidth="false" pannable="true" style="-fx-background-color: #cccccc;">
+               <content>
+                  <Group fx:id="zoomGroup">
+                     <children>
+                        <Pane fx:id="mapPane">
+                           <children>
+                              <ImageView fx:id="mapView" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Group>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+      
+      <!-- Panel Inferior: Gráfico del Perfil de Altitud -->
+      <AreaChart fx:id="elevationChart" createSymbols="false" legendVisible="false" style="-fx-background-color: white;" title="Perfil de Altitud">
+        <xAxis>
+          <NumberAxis label="Distancia (km)" side="BOTTOM" fx:id="xAxisDist" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxisAlt" label="Altitud (m)" side="LEFT" />
+        </yAxis>
+      </AreaChart>
+   </items>
+</SplitPane>

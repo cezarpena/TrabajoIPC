@@ -25,6 +25,7 @@ import upv.ipc.sportlib.Activity;
 import upv.ipc.sportlib.SportActivityApp;
 import java.util.ArrayList;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -43,14 +44,21 @@ public class ActivityController implements Initializable {
     @FXML private Label lblNumActs, lblTotalLoss, lblTotalGain, lblTotalTime, lblTotalDist;
 
     @FXML private ComboBox<String> monthSelector;
+    @FXML
+    private VBox acumuladoBox;
+    @FXML
+    private Label mothSelector;
+    @FXML
+    private StackPane mapContainer;
+    private MapController mapPanelController;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SportActivityApp app = SportActivityApp.getInstance();
 
         // Ocultar stats
-        statsBox.setVisible(false);
-        statsBox.setManaged(false);
+        statsBox.setVisible(true);
+        statsBox.setManaged(true);
 
         // Cargar actividad
         List<Activity> acts = app.getUserActivities();
@@ -71,6 +79,7 @@ public class ActivityController implements Initializable {
                 }
             }
         });
+        
         // Deshabilitar boton eliminar
         btnDelete.setDisable(true);
         btnDelete.setOnAction(this::handleDelete);
@@ -83,9 +92,26 @@ public class ActivityController implements Initializable {
                     statsBox.setVisible(true);
                     statsBox.setManaged(true);
                     mostrarEstadisticas(selected);
+                    
+                    if (mapPanelController != null) {
+                        mapPanelController.displayActivity(selected);
+                    }
                 }
             });        
         cargarSelectorMeses(acts);
+        
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
+                getClass().getResource("/views/components/mapPanel.fxml")
+            );
+            javafx.scene.Parent mapNode = loader.load();
+            this.mapPanelController = loader.getController();
+            mapContainer.getChildren().add(mapNode);
+        } catch (java.io.IOException e) {
+            System.err.println("Error al cargar el mapa dinámicamente: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML

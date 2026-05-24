@@ -1,4 +1,4 @@
-package mapademo;
+package utils;
 import javafx.geometry.Point2D;
 
 /*

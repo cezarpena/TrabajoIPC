@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SessionController">
-    <stylesheets>
-        <URL value="@/resources/css/estilos.css"/>
-    </stylesheets>
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.SessionController"
+      spacing="15"
+      style="-fx-padding: 20; -fx-background-color: white;">
+
+    <Label text="Historial de sesiones"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <TableView fx:id="tblSessions"
+               prefHeight="600">
+
+        <columns>
+
+            <TableColumn fx:id="colStart"
+                         text="Inicio"
+                         prefWidth="180" />
+
+            <TableColumn fx:id="colEnd"
+                         text="Fin"
+                         prefWidth="180" />
+
+            <TableColumn fx:id="colDuration"
+                         text="Duración"
+                         prefWidth="120" />
+
+            <TableColumn fx:id="colImported"
+                         text="Actividades"
+                         prefWidth="120" />
+
+            <TableColumn fx:id="colViewed"
+                         text="Visualizaciones"
+                         prefWidth="140" />
+
+            <TableColumn fx:id="colAnnotations"
+                         text="Anotaciones"
+                         prefWidth="120" />
+
+        </columns>
+
+    </TableView>
+
+</VBox>

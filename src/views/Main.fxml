@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.MainController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="600"
+      prefHeight="400"
+      style="-fx-background-color: linear-gradient(to bottom, #f5f7fa, #c3cfe2);">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Título principal -->
+    <Label text="Running la Safor"
+           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+    <!-- Subtítulo -->
+    <Label text="Bienvenido a la aplicación"
+           style="-fx-font-size: 16px; -fx-text-fill: #34495e;" />
+
+    <!-- Botón Login -->
+    <Button text="Iniciar sesión"
+            prefWidth="220"
+            prefHeight="45"
+            onAction="#goToLogin"
+            style="-fx-font-size: 14px;
+                   -fx-font-weight: bold;
+                   -fx-background-radius: 10;" />
+
+    <!-- Botón Registro -->
+    <Button text="Registrarse"
+            prefWidth="220"
+            prefHeight="45"
+            onAction="#goToRegister"
+            style="-fx-font-size: 14px;
+                   -fx-font-weight: bold;
+                   -fx-background-radius: 10;" />
+
+</VBox>

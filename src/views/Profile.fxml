@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxWidth="440.0" prefHeight="585.0" prefWidth="324.0" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfileController">
+   <children>
+      <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Mi Perfil" />
+      <ImageView fx:id="imgAvatar" fitHeight="80.0" fitWidth="80.0" preserveRatio="true" />
+      <Label text="Usuario (no editable):" />
+      <TextField fx:id="txtUsuario" editable="false" prefHeight="25.0" prefWidth="245.0" style="-fx-background-color: #eee;" />
+      <Label text="Correo electrónico:" />
+      <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="245.0" promptText="correo@dominio.com" />
+      <Label text="Cambiar contraseña:" />
+      <PasswordField fx:id="txtPassword" prefHeight="25.0" prefWidth="245.0" promptText="Nueva Contraseña (Opcional)" />
+      <Label text="Fecha de nacimiento:" />
+      <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="245.0" />
+      <Label text="Avatar:" />
+      <HBox alignment="CENTER_LEFT" spacing="10">
+        <TextField fx:id="txtAvatarPath" promptText="Ruta de imagen" HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleSelectAvatar" text="Seleccionar..." />
+    </HBox>
+      <Button onAction="#handleSave" prefWidth="200.0" styleClass="save-button" stylesheets="@../resources/css/estilos.css" text="Guardar cambios" />
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+   </padding>
+</VBox>

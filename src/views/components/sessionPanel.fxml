@@ -14,34 +14,33 @@
     <Label text="Historial de sesiones"
            style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
-    <TableView fx:id="tblSessions"
-               prefHeight="600">
+    <TableView fx:id="tblSessions" prefHeight="600">
 
         <columns>
 
             <TableColumn fx:id="colStart"
                          text="Inicio"
-                         prefWidth="180" />
+                         prefWidth="180"/>
 
             <TableColumn fx:id="colEnd"
                          text="Fin"
-                         prefWidth="180" />
+                         prefWidth="180"/>
 
             <TableColumn fx:id="colDuration"
                          text="Duración"
-                         prefWidth="120" />
+                         prefWidth="120"/>
 
             <TableColumn fx:id="colImported"
-                         text="Actividades"
-                         prefWidth="120" />
+                         text="Importadas"
+                         prefWidth="120"/>
 
             <TableColumn fx:id="colViewed"
-                         text="Visualizaciones"
-                         prefWidth="140" />
+                         text="Visualizadas"
+                         prefWidth="130"/>
 
             <TableColumn fx:id="colAnnotations"
                          text="Anotaciones"
-                         prefWidth="120" />
+                         prefWidth="120"/>
 
         </columns>
 

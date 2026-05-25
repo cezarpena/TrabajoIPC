@@ -57,8 +57,8 @@ public class ActivityController implements Initializable {
         SportActivityApp app = SportActivityApp.getInstance();
 
         // Ocultar stats
-        statsBox.setVisible(true);
-        statsBox.setManaged(true);
+        statsBox.setVisible(false);
+        statsBox.setManaged(false);
 
         // Cargar actividad
         List<Activity> acts = app.getUserActivities();
@@ -102,7 +102,7 @@ public class ActivityController implements Initializable {
         
         try {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
-                getClass().getResource("/views/components/mapPanel.fxml")
+                getClass().getResource("/views.components/mapPanel.fxml")
             );
             javafx.scene.Parent mapNode = loader.load();
             this.mapPanelController = loader.getController();

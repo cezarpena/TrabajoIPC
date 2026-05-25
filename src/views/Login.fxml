@@ -7,35 +7,22 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER"
-      spacing="15"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.LoginController">
+<VBox alignment="CENTER" spacing="15" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controllers.LoginController">
 
     <padding>
-        <Insets top="30" right="30" bottom="30" left="30"/>
+        <Insets bottom="30" left="30" right="30" top="30" />
     </padding>
 
-    <Label text="Running la Safor"
-           style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Running la Safor" />
 
-    <Label text="Iniciar Sesión"
-           style="-fx-font-size: 18px;" />
+    <Label style="-fx-font-size: 18px;" text="Iniciar Sesión" />
 
-    <TextField fx:id="txtNick"
-               promptText="Nickname"
-               prefWidth="250"/>
+    <TextField fx:id="txtNick" prefWidth="250" promptText="Nickname" />
 
-    <PasswordField fx:id="txtPassword"
-                   promptText="Contraseña"
-                   prefWidth="250"/>
+    <PasswordField fx:id="txtPassword" prefWidth="250" promptText="Contraseña" />
 
-    <Button text="Entrar"
-            prefWidth="250"
-            onAction="#handleLogin"/>
+    <Button onAction="#handleLogin" prefWidth="250" text="Entrar" />
 
-    <Button text="Registrarse"
-            prefWidth="250"
-            onAction="#goToRegister"/>
+    <Button onAction="#goToRegister" prefWidth="250" text="No tienes cuenta/Registrarse" />
 
 </VBox>

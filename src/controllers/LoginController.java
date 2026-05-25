@@ -39,28 +39,23 @@ public class LoginController {
         boolean ok = app.login(nick, password);
 
         if (ok) {
-            showAlert("Éxito", "Login correcto.");
-
-            // CAMBIAR A VENTANA PRINCIPAL
-            // loadScene("/view/Main.fxml", event);
-
+            loadScene("/views/Main.fxml", event);
         } else {
-            showAlert("Error", "Usuario o contraseña incorrectos.");
+            showAlert("Error", "Usuario o contrasena incorrectos.");
         }
     }
 
     @FXML
     private void goToRegister(ActionEvent event) {
-        loadScene("/view/Register.fxml", event);
+        loadScene("/views/Register.fxml", event);
     }
 
     private void loadScene(String fxml, ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = (Stage) txtNick.getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, 1100, 700));
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
             showAlert("Error", "No se pudo cargar la ventana.");

@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<BorderPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <stylesheets>
-        <URL value="@/resources/css/estilos.css"/>
+        <URL value="@/resources/css/estilos.css" />
     </stylesheets>
-</AnchorPane>
+    <left>
+        <VBox prefWidth="150.0" spacing="20.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
+            </padding>
+            <children>
+                <Button maxWidth="1.7976931348623157E308" onAction="#showActivities" text="Actividades" />
+                <Button maxWidth="1.7976931348623157E308" onAction="#showProfile" text="Perfil" />
+                <Button maxWidth="1.7976931348623157E308" onAction="#showSessions" text="Sesiones" />
+                <VBox VBox.vgrow="ALWAYS" />
+                <Button maxWidth="1.7976931348623157E308" onAction="#handleLogout" text="Cerrar sesion" />
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <StackPane fx:id="contentArea" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>

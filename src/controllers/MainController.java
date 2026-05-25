@@ -1,26 +1,65 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import upv.ipc.sportlib.SportActivityApp;
 
-/**
- * FXML Controller class
- *
- * @author The_T
- */
 public class MainController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private StackPane contentArea;
+    
+    private SportActivityApp app;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        app = SportActivityApp.getInstance();
+        showActivities(null);
     }    
-    
+
+    @FXML
+    private void showActivities(ActionEvent event) {
+        loadView("/views/components/activityPanel.fxml");
+    }
+
+    @FXML
+    private void showProfile(ActionEvent event) {
+        loadView("/views/Profile.fxml");
+    }
+
+    @FXML
+    private void showSessions(ActionEvent event) {
+        loadView("/views/components/sessionPanel.fxml");
+    }
+
+    @FXML
+    private void handleLogout(ActionEvent event) {
+        app.logout();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
+            Stage stage = (Stage) contentArea.getScene().getWindow();
+            stage.setScene(new Scene(root, 1100, 700));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadView(String fxml) {
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(fxml));
+            contentArea.getChildren().setAll(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
